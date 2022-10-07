@@ -76,7 +76,7 @@ app.use(auth);
 
 /* istanbul ignore if */
 if (process.env.REACT_APP_AUTH0) {
-  app.use(checkAuth0Jwt);
+  app.use(verifyOktaToken);
 }
 
 /* istanbul ignore if */
@@ -86,12 +86,13 @@ if (process.env.REACT_APP_OKTA) {
 
 /* istanbul ignore if */
 if (process.env.REACT_APP_AWS_COGNITO) {
-  app.use(checkCognitoJwt);
+  app.use(verifyOktaToken);
+  //checkCognitoJwt
 }
 
 /* istanbul ignore if */
 if (process.env.REACT_APP_GOOGLE) {
-  app.use(checkGoogleJwt);
+  app.use(verifyOktaToken);
 }
 
 app.use(
